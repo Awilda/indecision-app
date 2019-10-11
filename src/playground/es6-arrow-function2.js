@@ -1,5 +1,3 @@
-'use strict';
-
 // argument object - no longer bound with arrow function
 
 // const add = (a, b) => {
@@ -38,7 +36,7 @@
 // (es6) - 'this' will work
 // will not work for printPlacesLived, because then we'd lose access to this.cities
 
-var user = {
+const user = {
 	name: 'Awilda',
 	cities: ['Philidelphia', 'New York', 'Dublin'],
 
@@ -57,36 +55,29 @@ var user = {
 	// }
 
 	// using map
-	printPlacesLived: function printPlacesLived() {
-		var _this = this;
-
+	printPlacesLived() {
 		// const cityMessages = this.cities.map((city) => {
 		// 	return this.name + ' has lived in ' + city;
 		// });
 		// return cityMessages;
 		// shorthand syntax
-		return this.cities.map(function (city) {
-			return _this.name + ' has lived in ' + city;
-		});
+		return this.cities.map((city) => this.name + ' has lived in ' + city);
 	}
 };
 
 console.log(user.printPlacesLived());
 
+
 // Challenge area
-// numbers - array of numbers that we want to multiply
-// multiplyBy - single number
-//multiply - return a new array where the numbers have been multiplied
+	// numbers - array of numbers that we want to multiply
+	// multiplyBy - single number
+	//multiply - return a new array where the numbers have been multiplied
 
-var multiplier = {
-	numbers: [1, 2, 3],
+const multiplier = {
+	numbers: [1,2,3],
 	multiplyBy: 2,
-	multiply: function multiply() {
-		var _this2 = this;
-
-		return this.numbers.map(function (number) {
-			return number * _this2.multiplyBy;
-		});
+	multiply() {
+		return this.numbers.map((number) => number * this.multiplyBy);
 	}
 };
 
