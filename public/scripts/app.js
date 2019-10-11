@@ -1,93 +1,85 @@
 'use strict';
 
-// argument object - no longer bound with arrow function
+console.log("App.js is running!");
 
-// const add = (a, b) => {
-// 	console.log(arguments);
-// 	return a + b;
-// }
-
-// console.log(add(55, 1, 1001))
-
-// will get 'arguments not defined' error instead of displaying arguments like in es5
-
-
-// this keyword - no longer bound with arrow functions
-
-
-// (es5) won't work unless you do a work-around such as assigning 'this' to a new variable such as 'that'
-
-// const user = {
-// 	name: 'Awilda',
-// 	cities: ['Philidelphia', 'New York', 'Dublin'],
-// 	printPlacesLived: function () {
-// 		console.log(this.name);
-// 		console.log(this.cities);
-// 		// const that = this;
-
-// 		this.cities.forEach(function (city) {
-// 			console.log(this.name + ' has lived in ' + city);
-// 		});
-// 		// that.cities.forEach(function (city) {
-// 		// 	console.log(that.name + ' has lived in ' + city);
-// 		// });
-// 	}
-// };
-
-
-// (es6) - 'this' will work
-// will not work for printPlacesLived, because then we'd lose access to this.cities
-
-var user = {
-	name: 'Awilda',
-	cities: ['Philidelphia', 'New York', 'Dublin'],
-
-	// es5 version
-	// printPlacesLived: function () {
-	// 	this.cities.forEach((city) => {
-	// 		console.log(this.name + ' has lived in ' + city);
-	// 	});
-	// }
-
-	// es6 way of defining the method
-	// printPlacesLived() {
-	// 	this.cities.forEach((city) => {
-	// 		console.log(this.name + ' has lived in ' + city);
-	// 	});
-	// }
-
-	// using map
-	printPlacesLived: function printPlacesLived() {
-		var _this = this;
-
-		// const cityMessages = this.cities.map((city) => {
-		// 	return this.name + ' has lived in ' + city;
-		// });
-		// return cityMessages;
-		// shorthand syntax
-		return this.cities.map(function (city) {
-			return _this.name + ' has lived in ' + city;
-		});
-	}
+var app = {
+	title: 'Indecision App',
+	subtitle: 'Put your life in the hands of a computer',
+	options: ['One', 'Two']
 };
 
-console.log(user.printPlacesLived());
+// JSX - JavaScript XML
+var template = React.createElement(
+	'div',
+	null,
+	React.createElement(
+		'h1',
+		null,
+		app.title
+	),
+	app.subtitle && React.createElement(
+		'p',
+		null,
+		app.subtitle
+	),
+	React.createElement(
+		'p',
+		null,
+		app.options.length > 0 ? 'Here are your options: ' : 'No options'
+	),
+	React.createElement(
+		'ol',
+		null,
+		React.createElement(
+			'li',
+			null,
+			'List one'
+		),
+		React.createElement(
+			'li',
+			null,
+			'List two'
+		)
+	)
+);
 
-// Challenge area
-// numbers - array of numbers that we want to multiply
-// multiplyBy - single number
-//multiply - return a new array where the numbers have been multiplied
-
-var multiplier = {
-	numbers: [1, 2, 3],
-	multiplyBy: 2,
-	multiply: function multiply() {
-		var _this2 = this;
-
-		return this.numbers.map(function (number) {
-			return number * _this2.multiplyBy;
-		});
-	}
+var count = 0;
+var addOne = function addOne() {
+	console.log('addOne');
+};
+var minusOne = function minusOne() {
+	console.log('minusOne');
+};
+var reset = function reset() {
+	console.log('reset');
 };
 
-console.log(multiplier.multiply()); // [1,2,3] => [2,4,6]
+var templateTwo = React.createElement(
+	'div',
+	null,
+	React.createElement(
+		'h1',
+		null,
+		'Count: ',
+		count
+	),
+	React.createElement(
+		'button',
+		{ onClick: addOne },
+		'+1'
+	),
+	React.createElement(
+		'button',
+		{ onClick: minusOne },
+		'-1'
+	),
+	React.createElement(
+		'button',
+		{ onClick: reset },
+		'reset'
+	)
+);
+
+var appRoot = document.getElementById('app');
+
+ReactDOM.render(templateTwo, appRoot);
