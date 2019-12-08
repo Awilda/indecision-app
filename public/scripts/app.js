@@ -8,8 +8,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// stateless functional component
-
 var IndecisionApp = function (_React$Component) {
 	_inherits(IndecisionApp, _React$Component);
 
@@ -23,7 +21,7 @@ var IndecisionApp = function (_React$Component) {
 		_this.handleAddOption = _this.handleAddOption.bind(_this);
 		_this.handleDeleteOption = _this.handleDeleteOption.bind(_this);
 		_this.state = {
-			options: props.options
+			options: []
 		};
 		return _this;
 	}
@@ -32,24 +30,16 @@ var IndecisionApp = function (_React$Component) {
 		key: 'componentDidMount',
 		value: function componentDidMount() {
 			try {
-				var _json = localStorage.getItem('options');
-				var _options = JSON.parse(_json);
+				var json = localStorage.getItem('options');
+				var options = JSON.parse(json);
 
-				if (_options) {
+				if (options) {
 					this.setState(function () {
-						_options;
+						options;
 					});
 				}
 			} catch (e) {
 				// do nothing at all
-			}
-			var json = localStorage.getItem('options');
-			var options = JSON.parse(json);
-
-			if (options) {
-				this.setState(function () {
-					options;
-				});
 			}
 		}
 	}, {
@@ -132,10 +122,6 @@ var IndecisionApp = function (_React$Component) {
 
 	return IndecisionApp;
 }(React.Component);
-
-IndecisionApp.defaultProps = {
-	options: []
-};
 
 var Header = function Header(props) {
 	return React.createElement(

@@ -1,5 +1,3 @@
-// stateless functional component
-
 class IndecisionApp extends React.Component {
 	constructor(props) {
 		super(props);
@@ -8,7 +6,7 @@ class IndecisionApp extends React.Component {
 		this.handleAddOption = this.handleAddOption.bind(this);
 		this.handleDeleteOption = this.handleDeleteOption.bind(this);
 		this.state = {
-			options: props.options
+			options: []
 		};
 	}
 	componentDidMount() {
@@ -21,12 +19,6 @@ class IndecisionApp extends React.Component {
 			}
 		} catch (e) {
 			// do nothing at all
-		}
-		const json = localStorage.getItem('options');
-		const options = JSON.parse(json);
-
-		if (options) {
-			this.setState(() => { options });
 		}
 	}
 	componentDidUpdate(prevProps, prevState) {
@@ -85,10 +77,6 @@ class IndecisionApp extends React.Component {
 			</div>
 		)
 	};
-}
-
-IndecisionApp.defaultProps = {
-	options: []
 }
 
 const Header = (props) => {
