@@ -1,17 +1,7 @@
-// import './utils.js';
-// import subtract, { square, add } from './utils.js';
-import isSenior, { isAdult, canDrink } from './person.js';
+// install -> import -> use
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-// console.log("app.js is running");
-// console.log(square(4));
-// console.log(add(4,1));
-// console.log(subtract(100, 81));
+const template = React.createElement('p', {}, 'testing 123');
 
-
-console.log(isAdult(16));
-console.log(canDrink(21));
-console.log(isSenior(65));
-console.log(isSenior(64));
-
-// Setting the default export and function
-// Grab the default and call it
+ReactDOM.render(template, document.getElementById('app'));
