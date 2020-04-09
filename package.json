@@ -6,10 +6,12 @@
   "homepage": "https://awilda.github.io/indecision-app/",
   "license": "MIT",
   "scripts": {
-    "serve": "live-server public/",
-    "build": "webpack",
-    "dev-server": "webpack-dev-server",
-    "deploy": "gh-pages -d bundle"
+    "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "dependencies": {
     "babel-cli": "^6.24.1",
@@ -26,6 +28,7 @@
     "react": "16.0.0",
     "react-dom": "16.0.0",
     "react-modal": "2.2.2",
+    "react-scripts": "^3.4.1",
     "sass-loader": "6.0.6",
     "style-loader": "0.18.2",
     "validator": "8.0.0",
