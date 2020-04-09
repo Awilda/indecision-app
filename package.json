@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "Awilda Couverthier",
+  "homepage": "https://awilda.github.io/indecision-app/",
   "license": "MIT",
   "scripts": {
     "serve": "live-server public/",
     "build": "webpack",
-    "dev-server": "webpack-dev-server"
+    "dev-server": "webpack-dev-server",
+    "deploy": "gh-pages -d bundle"
   },
   "dependencies": {
     "babel-cli": "^6.24.1",
@@ -17,6 +19,7 @@
     "babel-preset-env": "1.5.2",
     "babel-preset-react": "6.24.1",
     "css-loader": "0.28.4",
+    "gh-pages": "^2.2.0",
     "live-server": "^1.2.1",
     "node-sass": "4.5.3",
     "normalize.css": "7.0.0",
